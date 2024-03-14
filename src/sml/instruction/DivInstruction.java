@@ -17,4 +17,8 @@ public class DivInstruction extends Instruction {
         this.result = result;
     }
 
+    @Override
+    public int getSize() {
+        return 1 + source.getSize() * result.getSize();
+    }
 }
