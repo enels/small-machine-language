@@ -31,5 +31,13 @@ public class SubInstruction extends Instruction {
         return 1 + source.getSize() - result.getSize();
     }
 
+    @Override
+    public int execute(Machine machine) {
+        int sourceValue = this.source.getValue();
+        int resultValue = this.result.getValue();
 
+        this.result.setValue(resultValue - sourceValue);
+
+        return this.getSize();
+    }
 }
