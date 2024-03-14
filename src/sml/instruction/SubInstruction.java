@@ -40,4 +40,9 @@ public class SubInstruction extends Instruction {
 
         return this.getSize();
     }
+
+    @Override
+    public String toString() {
+        return getLabelString() + getOpcode() + " " + result + ", " + source;
+    }
 }
