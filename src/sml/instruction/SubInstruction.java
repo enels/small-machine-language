@@ -25,4 +25,11 @@ public class SubInstruction extends Instruction {
         this.source = source;
 
     }
+
+    @Override
+    public int getSize() {
+        return 1 + source.getSize() - result.getSize();
+    }
+
+
 }
