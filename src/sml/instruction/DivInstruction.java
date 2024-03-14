@@ -2,5 +2,6 @@ package sml.instruction;
 
 import sml.Instruction;
 
-public abstract class DivInstruction {
+public class DivInstruction extends Instruction {
+
 }
