@@ -1,6 +1,7 @@
 package sml;
 
 import sml.instruction.*;
+import sml.Labels;
 
 import java.io.File;
 import java.io.IOException;
@@ -91,7 +92,18 @@ public final class Translator {
             String d = scan(false);
             String s = scan(true);
 
-            Class<?> instructionClass = Class.forName("sml.instruction.MovInstruction");
+            Class<?> instructionClass;
+
+            if ( opcode.equals(MovInstruction.OP_CODE)) {
+                instructionClass = Class.forName("sml.instruction.MovInstruction");
+            }
+            else if ( opcode.equals(DivInstruction.OP_CODE) ) {
+                instructionClass = Class.forName("sml.instruction.DivInstruction");
+            }
+            else {
+                instructionClass = Class.forName("sml.instruction.MulInstruction");
+            }
+
             Constructor<?> constructor = instructionClass.getConstructor(String.class, InstructionDestination.class, InstructionSource.class);
             return (Instruction) constructor.newInstance(label, getDestination(d, machine), getSource(s, machine));
         }
