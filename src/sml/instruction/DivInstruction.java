@@ -11,4 +11,10 @@ public class DivInstruction extends Instruction {
     private final InstructionSource source;
     public final static String OP_CODE = "div";
 
+    public DivInstruction(String label, InstructionSource source, InstructionDestination result) {
+        super(label, OP_CODE);
+        this.source = source;
+        this.result = result;
+    }
+
 }
