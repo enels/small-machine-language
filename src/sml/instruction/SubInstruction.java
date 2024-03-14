@@ -23,6 +23,6 @@ public class SubInstruction extends Instruction {
         super(label, OP_CODE);
         this.result = result;
         this.source = source;
-    }
 
+    }
 }
