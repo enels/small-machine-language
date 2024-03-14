@@ -3,6 +3,7 @@ package sml.instruction;
 import sml.Instruction;
 import sml.InstructionDestination;
 import sml.InstructionSource;
+import sml.Machine;
 
 public class DivInstruction extends Instruction {
 
@@ -20,5 +21,15 @@ public class DivInstruction extends Instruction {
     @Override
     public int getSize() {
         return 1 + source.getSize() * result.getSize();
+    }
+
+    @Override
+    public int execute(Machine machine) {
+        int sourceValue = this.source.getValue();
+        int resultValue = this.result.getValue();
+
+        this.result.setValue(resultValue / sourceValue);
+
+        return this.getSize();
     }
 }
